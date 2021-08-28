@@ -738,7 +738,7 @@ class Youtube
         $tuCurl = curl_init();
 
         if (isset($_SERVER['HTTP_HOST']) && $this->config['use-http-host']) {
-            curl_setopt($tuCurl, CURLOPT_HEADER, array('Referer' => $_SERVER['HTTP_HOST']));
+            curl_setopt($tuCurl, CURLOPT_HTTPHEADER, array('Referer: '.$_SERVER['HTTP_HOST']));
         }
 
         curl_setopt($tuCurl, CURLOPT_URL, $url . (strpos($url, '?') === false ? '?' : '') . http_build_query($params));
